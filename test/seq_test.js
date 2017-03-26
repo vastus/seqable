@@ -82,5 +82,11 @@ describe('tail', function () {
       const seq = cons(1, cons(2, cons(3, null)));
       assert.notStrictEqual(map(identity, seq), seq);
     });
+
+    it('maps the values to new seq with given f', function () {
+      const seq = cons(0, cons(27, null));
+      const f = x => x + 42;
+      assert.deepStrictEqual(map(f, seq), cons(42, cons(69, null)));
+    });
   });
 });
